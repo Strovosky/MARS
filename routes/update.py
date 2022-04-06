@@ -5,7 +5,7 @@ from schemas.table_model import local_session
 
 app_update = APIRouter()
 
-@app_update.post("/update_member/{id}")
+@app_update.put("/update_member/{id}")
 def member_update(id: int = Path(..., gt=0), member_to_update : MemberModelUpdate = Body(...)):
     member_to_update_table = local_session.query(MemberModelTable).filter(MemberModelTable.membership_id == id).first()
 

@@ -6,7 +6,7 @@ from schemas.member_model import MemberModel # To bring the api member model.
 app_create = APIRouter()
 
 
-@app_create.put("/new_member")
+@app_create.post("/new_member")
 # We'll get the info from the api member model and put it into the table model and then commit it.
 def create_member(new_member : MemberModel = Body(...)):
     new_member_table = MemberModelTable(first_name=new_member.first_name, 
